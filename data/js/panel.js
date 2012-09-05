@@ -18,10 +18,23 @@ var et = {
       audio.src = url;
       audio.play();
     });
+
+    self.port.on('update-countdown', function (time) {
+      document.getElementById('countdown').innerHTML = time;
+    });
   },
 
   listenLocal : function () {
     document.getElementById('egg-timer-form').addEventListener('submit', this.timerFormListener, false);
+    document.getElementById('cancel').addEventListener('click', this.cancelTimerListener, false);
+  },
+
+  cancelTimerListener : function (event) {
+    event.preventDefault();
+    self.port.emit('cancel');
+    document.getElementById('cancel').innerHTML = 'Cancel';
+    document.getElementById('submit').disabled = false;
+    document.getElementById('cancel').disabled = true;
   },
 
   timerFormListener : function (event) {
@@ -46,8 +59,12 @@ var et = {
 
       self.port.emit('form-timer', {
         'time' : t,
+        'timeHumanized' : { h: h, m: m, s: s },
         'notification' : (n === undefined ? 1 : n)
       });
+      document.getElementById('cancel').innerHTML = 'Stop';
+      document.getElementById('cancel').disabled = false;
+      document.getElementById('submit').disabled = true;
     }
 
     event.preventDefault();
