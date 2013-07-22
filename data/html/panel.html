@@ -24,15 +24,22 @@
       padding: 0;
     }
     ul, div > input {
-      margin-left: 20px;
+      margin-left: 0;
     }
     div > input {
-      margin-top: 5px;
+      margin: 5px 0;
+      vertical-align: middle;
+    }
+    li > input {
+      vertical-align: text-bottom;
     }
     div, div > input[type=submit] {
       margin: 10px 0;
     }
     audio {
+      display: none;
+    }
+    .hidden {
       display: none;
     }
   </style>
@@ -41,12 +48,12 @@
   <form id="egg-timer-form">
     <div>
       <span>Choose your time:</span><br />
-      <input type="range" id="timer-hour" name="timer-hour" min="0" max="23" pattern="[0-9]|[0-1][0-9]|2[0-3]" size="2" placeholder="0" />
-      <label for="timer-hour">hour(s)</label><br />
-      <input type="range" id="timer-minute" name="timer-minute" min="0" max="59" pattern="[0-5]?[0-9]" size="2" placeholder="0" />
-      <label for="timer-minute">minute(s)</label><br />
-      <input type="range" id="timer-second" name="timer-second" min="0" max="59" pattern="[0-5]?[0-9]" size="2" placeholder="0" />
-      <label for="timer-second">second(s)</label><br />
+      <input type="range" id="timer-hour" name="timer-hour" value="0" min="0" max="23" pattern="[0-9]|[0-1][0-9]|2[0-3]" size="2" placeholder="0" />
+      <label for="timer-hour"><span id="timer-hour-value">0</span> hour<span id="timer-hour-label-plural" class="hidden">s</span></label><br />
+      <input type="range" id="timer-minute" name="timer-minute" value="0" min="0" max="59" pattern="[0-5]?[0-9]" size="2" placeholder="0" />
+      <label for="timer-minute"><span id="timer-minute-value">0</span> minute<span id="timer-minute-label-plural" class="hidden">s</span></label><br />
+      <input type="range" id="timer-second" name="timer-second" value="0" min="0" max="59" pattern="[0-5]?[0-9]" size="2" placeholder="0" />
+      <label for="timer-second"><span id="timer-second-value">0</span> second<span id="timer-second-label-plural" class="hidden">s</span></label><br />
     </div>
     <div>
       <label for="timer-notification">Choose your notifcation:</label>
