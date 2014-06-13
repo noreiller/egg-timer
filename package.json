@@ -2,7 +2,7 @@
     "name": "egg-timer",
     "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
     "author": "Aur\u00e9lien MANCA <aurelien@amanca.fr>",
-    "version": "0.3",
+    "version": "0.3.1",
     "fullName": "Egg Timer",
     "id": "jid1-TTYojwFR6Rg4eA",
     "description": "An egg timer, simple and restartless"
